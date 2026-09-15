@@ -4,18 +4,23 @@ class Reckless < Formula
   version "1.0.0"
   license "MIT"
 
-  # macOS (Intel and Apple Silicon)
-  # If you have separate binaries for M1 (arm64) vs Intel (amd64), use `if Hardware::CPU.arm?` logic.
-  # For now, assuming you are releasing the amd64 binary (which works on M1 via Rosetta) or a universal binary.
+  # macOS: separate native binaries for Apple Silicon and Intel.
   on_macos do
-    url "https://github.com/igbanam/homebrew-servings/releases/download/v#{version}/reckless-darwin-amd64.tar.gz"
-    sha256 "6eba19e8e425a0d2439779ff33ca0b173fe6125e7b8457e44ecdce255d092f9b"
+    on_arm do
+      url "https://github.com/igbanam/homebrew-servings/releases/download/v#{version}/reckless-darwin-arm64.tar.gz"
+      sha256 "df694feb6fa07f50e19235dafa2da54b01514dde9fa932f1307feee75b35db40"
+    end
+
+    on_intel do
+      url "https://github.com/igbanam/homebrew-servings/releases/download/v#{version}/reckless-darwin-amd64.tar.gz"
+      sha256 "a238c7fa4b0302ad49d3104ab67c31667f5d3ebd9f4a0e20efff835deb6448c2"
+    end
   end
 
   # Linux (Intel/AMD64)
   on_linux do
     url "https://github.com/igbanam/homebrew-servings/releases/download/v#{version}/reckless-linux-amd64.tar.gz"
-    sha256 "3717daba6f5c079a61b7f962e4ab14b58202dafa01bef2d05fcdcf103950cdb0"
+    sha256 "e43a26e5746de6fa934eff83bfeff7c44b40c6e191d43d81083e333a0d4bf441"
   end
 
   # Windows is not supported by standard Homebrew, so we omit it here.
