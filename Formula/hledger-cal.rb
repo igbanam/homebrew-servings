@@ -1,7 +1,6 @@
 class HledgerCal < Formula
   desc "Calendar view of income and expenses for HLedger"
   homepage "https://github.com/igbanam/hledger-cal"
-  version "0.1.0.0"
   license "GPL-3.0-or-later"
 
   on_macos do
