@@ -5,23 +5,23 @@ class HledgerCal < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/igbanam/hledger-cal/releases/download/v0.1.0.0/hledger-cal-v0.1.0.0-x86_64-apple-darwin.tar.gz"
-      sha256 "f5ebb157e6af13884bba1c3f20b06d2b10a643cd6cdc06fde7fce6fa67b489b1"
+      url "https://github.com/igbanam/hledger-cal/releases/download/v0.1.0.1/hledger-cal-v0.1.0.1-x86_64-apple-darwin.tar.gz"
+      sha256 "0d228788068480ca43c71f68ef6ab2ae36323b86dea54ec46e1e2d419a2f1cf1"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/igbanam/hledger-cal/releases/download/v0.1.0.0/hledger-cal-v0.1.0.0-aarch64-apple-darwin.tar.gz"
-      sha256 "444180a82aa83f9d2aa039e119b1f1485497fdcd6031d06f176b55fde765582b"
+      url "https://github.com/igbanam/hledger-cal/releases/download/v0.1.0.1/hledger-cal-v0.1.0.1-aarch64-apple-darwin.tar.gz"
+      sha256 "32faaf2f60568f467f1f3b8f76dc1ff381acc2f9caddb2f1a31c753d5df576ad"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/igbanam/hledger-cal/releases/download/v0.1.0.0/hledger-cal-v0.1.0.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "90fa5c6578eb9cd83bc2c98be648ed7b4683b28bf331ae7e6d354f51bcaf6b2b"
+      url "https://github.com/igbanam/hledger-cal/releases/download/v0.1.0.1/hledger-cal-v0.1.0.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "086f8e79bc066eda2dab8a7ee67fc6ddc71999a51edce28b315ddd3cafb868dc"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/igbanam/hledger-cal/releases/download/v0.1.0.0/hledger-cal-v0.1.0.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "8adfce6859c898ed1314a09c493eae4c8241ac74efa6ac8647aa3d11c766bb2c"
+      url "https://github.com/igbanam/hledger-cal/releases/download/v0.1.0.1/hledger-cal-v0.1.0.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "6ff6b8811c7dd2a2e69218ad7949c5d01f5b3a1154930fa7954094fe71bd5089"
     end
   end
 
@@ -37,6 +37,6 @@ class HledgerCal < Formula
   end
 
   test do
-    assert_match "Show income and expenses as a calendar", shell_output("#{bin}/hledger-cal --help")
+    assert_equal "hledger-cal #{version}\n", shell_output("#{bin}/hledger-cal --version")
   end
 end
